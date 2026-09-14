@@ -2,6 +2,22 @@
 
 > Column-level lineage that answers 'which three dashboards break', not 'forty-seven objects touch this table'.
 
+## Live deployment
+
+[![CI and deployment](https://github.com/SlateGitOrg/lineagelens/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SlateGitOrg/lineagelens/actions/workflows/ci.yml)
+
+[Open the interactive Lineage Lens demo](https://slategitorg.github.io/lineagelens/)
+
+The deployed interface uses a deterministic offline scenario to make the repository's tested decision rule visible without external services or private data.
+
+### Desktop
+
+![Lineage Lens desktop deployment](docs/assets/deployed-desktop.png)
+
+### Mobile
+
+<img src="docs/assets/deployed-mobile.png" alt="Lineage Lens mobile deployment" width="390">
+
 `COMPACT` · **Business Analyst** · Intermediate · ~5 days · Retail - analytics team supporting 200 dashboards
 
 **Primary language:** Python
