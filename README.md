@@ -6,9 +6,9 @@
 
 [![CI and deployment](https://github.com/SlateGitOrg/lineagelens/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SlateGitOrg/lineagelens/actions/workflows/ci.yml)
 
-[Open the interactive Lineage Lens demo](https://slategitorg.github.io/lineagelens/)
+[Open the working Lineage Lens application](https://slategitorg.github.io/lineagelens/)
 
-The deployed interface uses a deterministic offline scenario to make the repository's tested decision rule visible without external services or private data.
+This deployed application runs the project's decision workflow in the browser. Change the inputs, run the analysis, and inspect the computed metrics and decision trace.
 
 ### Desktop
 
