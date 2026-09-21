@@ -1,1 +1,38 @@
-<!doctype html><html lang="en" class="network-map"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Answer which three dashboards break without showing forty-seven irrelevant objects."><meta name="theme-color" content="#0d1c24"><title>Lineage Lens — Live demo</title><link rel="stylesheet" href="./styles.css"></head><body><div class="shell"><nav class="topbar" aria-label="Primary"><a class="brand" href="./"><span class="brand-mark">S</span>Lineage Lens</a><a class="repo-link" href="https://github.com/SlateGitOrg/lineagelens">View source on GitHub</a></nav><main><header class="hero"><div><p class="kicker">Data impact explorer</p><h1>Answer which three dashboards break without showing forty-seven irrelevant objects.</h1></div><div class="hero-side"><p>This interactive browser scenario makes the repository's tested decision rule visible. Adjust the operating condition and inspect what changes.</p><div class="status" role="status"><span class="status-dot" aria-hidden="true"></span>Impact isolated</div></div></header><section class="visual" aria-label="Interactive project view"><div class="map-shell"><svg class="network" viewBox="0 0 650 350" role="img" aria-labelledby="network-title"><title id="network-title">Relationship path from Orders mart to Executive KPI</title><g class="edges"><path d="M92 170 C170 62 232 68 300 128"/><path d="M92 170 C190 270 245 274 332 232"/><path d="M300 128 C390 70 462 82 548 146"/><path d="M332 232 C420 268 492 246 548 146"/></g><g class="nodes"><g transform="translate(92 170)"><circle r="42"/><text y="5">01</text></g><g transform="translate(300 128)"><circle r="34"/><text y="5">02</text></g><g transform="translate(332 232)"><circle r="30"/><text y="5">03</text></g><g class="target" transform="translate(548 146)"><circle r="48"/><text y="5">04</text></g></g></svg><ol class="path-list"><li><button type="button" data-node="0"><span>01</span>Orders mart</button></li><li><button type="button" data-node="1"><span>02</span>Revenue model</button></li><li><button type="button" data-node="2"><span>03</span>Executive KPI</button></li></ol></div></section><aside class="panel"><div class="metric"><strong id="primary-metric" aria-live="polite">3</strong><span>dashboards at risk</span></div><div class="control"><label for="scenario-range"><span>Lineage depth</span><output id="scenario-output" for="scenario-range">3 levels</output></label><input id="scenario-range" type="range" min="1" max="6" value="3" aria-label="Lineage depth"></div><div class="facts"><div class="fact"><strong>47</strong><span>objects traversed</span></div><div class="fact"><strong>4</strong><span>critical columns</span></div><div class="fact"><strong>2</strong><span>owners paged</span></div></div></aside><footer class="demo-note"><p>Representative offline scenario. The repository's native test suite verifies the core behavior; this page visualizes its decision path without external services or private data.</p><a href="https://github.com/SlateGitOrg/lineagelens#readme">Read the engineering case study</a></footer></main></div><script src="./app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Parse SQL references and identify the downstream dashboards affected by a changed column.">
+  <title>Lineage Lens · Working Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="masthead"><a class="brand" href="https://github.com/SlateGitOrg/lineagelens">Lineage Lens</a><span class="build-state"><i></i> live computation</span></header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Column impact explorer</p>
+      <h1>Run the decision,<br><em>inspect the evidence.</em></h1>
+      <p class="lede">Parse SQL references and identify the downstream dashboards affected by a changed column.</p>
+    </section>
+    <section class="workspace" aria-label="Interactive project workspace">
+      <form id="workspace-form" class="control-panel">
+        <div class="panel-heading"><span>01</span><div><p>Inputs</p><h2>Configure the run</h2></div></div>
+        <div class="fields"><label class="field" for="sql"><span>Model SQL</span><textarea id="sql" name="sql" rows="12">SELECT o.customer_id, o.net_revenue, c.segment
+FROM orders o
+JOIN customers c ON o.customer_id = c.id</textarea></label>
+<label class="field" for="dashboards"><span>Downstream dashboard dependencies as JSON</span><textarea id="dashboards" name="dashboards" rows="9">[{&quot;name&quot;:&quot;Executive revenue&quot;,&quot;columns&quot;:[&quot;orders.net_revenue&quot;]},{&quot;name&quot;:&quot;Segment mix&quot;,&quot;columns&quot;:[&quot;customers.segment&quot;,&quot;orders.net_revenue&quot;]},{&quot;name&quot;:&quot;Fulfilment&quot;,&quot;columns&quot;:[&quot;orders.shipped_at&quot;]}]</textarea></label>
+<label class="field" for="changedColumn"><span>Changed column</span><textarea id="changedColumn" name="changedColumn" rows="2">orders.net_revenue</textarea></label></div>
+        <div class="actions"><button class="run" type="submit">Run analysis <span>→</span></button><button id="reset-button" class="reset" type="button">Reset</button></div>
+      </form>
+      <section id="results" class="result-panel" aria-live="polite" aria-busy="true">
+        <div class="panel-heading"><span>02</span><div><p>Output</p><h2>Decision trace</h2></div></div>
+        <div id="result-content" class="result-content"><div class="loading">Computing initial scenario…</div></div>
+      </section>
+    </section>
+  </main>
+  <footer><p>Built from the tested logic in <a href="https://github.com/SlateGitOrg/lineagelens">SlateGitOrg/lineagelens</a>.</p><p>Interactive capstone · Sneha Chandra</p></footer>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
