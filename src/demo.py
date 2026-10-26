@@ -1,4 +1,4 @@
-"""The 60-second artefact: 3 dashboards, not 47 objects.
+"""Demo: column-level impact versus table-level impact.
 
 Run: python -m src.demo
 """
@@ -19,7 +19,7 @@ def main() -> None:
         graph.add(resolve(sql, model, CATALOG))
 
     total_columns = sum(len(m.columns) for m in graph.models.values())
-    print("\n  LINEAGELENS - 'which three dashboards break?'")
+    print("\n  LINEAGELENS - which dashboards break?")
     print("  " + "=" * 72)
     print(f"  {len(graph.models)} models, {total_columns} output columns, "
           f"{len(DASHBOARDS)} dashboards.\n")

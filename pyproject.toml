@@ -1,7 +1,7 @@
 [project]
 name = "lineagelens"
 version = "0.1.0"
-description = "Column-level lineage that answers 'which three dashboards break', not 'forty-seven objects touch this table'."
+description = "Column-level SQL lineage and impact analysis: which columns and dashboards break when one column changes."
 requires-python = ">=3.11"
 dependencies = []
 

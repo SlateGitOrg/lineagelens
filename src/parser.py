@@ -1,10 +1,8 @@
 """A focused SQL parser for column-level lineage.
 
-THE DIFFERENTIATOR LIVES HERE.
-
-Table-level lineage says "47 downstream objects touch this table". Nobody can
-act on that. Column-level lineage says "three objects read this specific
-column, here they are" - which is a code review comment.
+Table-level lineage says "ten downstream objects touch this table", which is hard
+to act on. Column-level lineage says which objects read one specific column,
+which is a usable code review comment.
 
 The reason most tools stop at table level is that the interesting cases are
 hard: `SELECT *` has to be expanded against the source schema, CTEs have to be
@@ -13,8 +11,8 @@ rather than by name. Getting those three right is the entire value; a lineage
 tool that is correct 90% of the time cannot be trusted for impact analysis at
 all, because you cannot tell which 10% you are looking at.
 
-Production uses SQLGlot, which embeds real dialect grammars. This is a focused
-subset covering the constructs that appear in analytics SQL, written so the
+This is a dependency-free, focused subset of SQL (not a full dialect grammar)
+covering the constructs that appear in analytics SQL, written so the
 resolution rules are inspectable rather than buried in a dependency.
 """
 
